@@ -6,3 +6,13 @@
 <%= @recipe.title %>
 
 <%= simple_format @recipe.body %>   <%# simple_formatとは、改行を無くして表示してくれる %>
+
+<% if @recipe.user.id == current_user.id %>
+  <%= link_to "編集", edit_recipe_path(@recipe), class: "button is-success" %>
+<% end %>
+
+<%= @recipe.user.username %>  <%# レシピに紐づいたユーザーネームをとってくる %>
+
+<%= link_to user_path(@recipe.user) do %>
+  <%= @recipe.user.username %>さんのページへ
+<% end %>
