@@ -29,10 +29,14 @@
     <% end %> 
 
     <% if user_signed_in? %>
+    <%= link_to "レシピ一覧", recipes_path, class: "button is-warning is-light" %>
+    <%= link_to "新規投稿", new_recipe_path, class: "button is-warning is-light" %>
+    <%= link_to "マイページ", user_path(current_user), class: "button is-warning is-light" %>
     <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-warning is-light" %>
-    <%= link_to "レシピグラム一覧", users_path, class:"button is-warning is-light" %>
+    <%= link_to "レシピグラマ一覧", users_path, class:"button is-warning is-light" %>
     <% else %>
-    <%= link_to "レシピグラム一覧", users_path, class:"button is-warning is-light" %>
+    <%= link_to "レシピ一覧", recipes_path, class: "button is-warning is-light" %>
+    <%= link_to "レシピグラマ一覧", users_path, class:"button is-warning is-light" %>
     <%= link_to "ログイン", new_user_session_path, class: "button is-success is-light" %>
     <%= link_to "新規登録", new_user_registration_path, class: "button is-warning is-light" %>
     <% end %>

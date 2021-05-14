@@ -20,7 +20,6 @@ class UsersController < ApplicationController
 
   private
   def user_params #ストロングパラメーター
-    params.require(:user).permit(:username, :email, :profile, :profile_iamge) #許可されているキー
+    params.require(:user).permit(:username, :email, :profile, :profile_image) #許可されているキー
   end
-
 end

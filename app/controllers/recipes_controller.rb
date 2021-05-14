@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   def index
-    @recipe = Recipe.all
+    @recipes = Recipe.all
   end
 
   def show
@@ -26,6 +26,12 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @recipe.update(recipe_params)
     redirect_to recipe_path(@recipe)
+  end
+
+  def destroy
+    recipe = Recipe.find(params[:id])
+    recipe.destroy
+    redirect_to recipes_path
   end
 
   private
