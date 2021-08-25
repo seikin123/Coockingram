@@ -57,7 +57,7 @@
             <div class="card-image">
               <figure class="image is-4by3">
                 <%= link_to recipe_path(recipe) do %>
-                  <%= attachment_image_tag recipe, :image, fallback: "no-image.png" %>
+                  <%= attachment_image_tag recipe, :image, fallback: "no_image.jpg" %>
                 <% end %>
               </figure>
             </div>
@@ -93,6 +93,20 @@
           </div>
         </div>
       <% end %>
+
+        <div class="follower">
+            <%= link_to followers_user_path(current_user) do %>
+                <h5 style="color: black;">フォロワー<%= @user.followers.count %>人</h5>
+            <% end %>
+        </div>
+        <div class="follow">
+            <%= link_to following_user_path(current_user) do %>
+                      <h5 style="color: black;">フォロー<%= @user.following.count %>人</h5>
+            <% end %>
+        </div>
+        <div>
+          <%= render "follow_form" %>
+      </div>
     </div>
   </div>
 </section>
