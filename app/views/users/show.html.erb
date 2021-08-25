@@ -40,15 +40,19 @@
                   <%= @user.profile %>
                 </td>
                 <td>
-                  <%= link_to following_user_path(current_user) do %>
-                    <h5 style="color: black;">フォロー<%= @user.following.count %>人</h5>
-                  <% end %>
+                  <h5 style="color: black;">フォロー 
+                    <%= link_to following_user_path(current_user) do %>
+                      <%= @user.following.count %> 
+                    <% end %>
+                  人</h5>
                   <%= render "follow_form" %>
                 </td>
                 <td>
+                  <h5 style="color: black;">フォロワー 
                   <%= link_to followers_user_path(current_user) do %>
-                  <h5 style="color: black;">フォロワー<%= @user.followers.count %>人</h5>
+                  <%= @user.followers.count %>
                   <% end %>
+                  人</h5>
                 </td>
               </tr>
             </table>
