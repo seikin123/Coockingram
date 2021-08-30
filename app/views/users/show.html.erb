@@ -32,28 +32,21 @@
                     <%= link_to "編集", edit_user_path(@user), class: "button is-primary" %>
                 </td>
                 <% end %>
+                <td></td>
+                <td></td>
               </tr>
-            </table>
-            <table class="table is-fullwidth">
               <tr>
-                <td>
-                  <%= @user.profile %>
-                </td>
-                <td>
-                  <h5 style="color: black;">フォロー 
-                    <%= link_to following_user_path(current_user) do %>
-                      <%= @user.following.count %> 
+                <td> フォロー数: <%= link_to "#{@user.follower.count}", follow_user_path(@user.id) %></td>
+                <td>フォロワー数: <%= link_to "#{@user.followed.count}", follower_user_path(@user.id) %></td>
+                  <% unless @user == current_user %>
+                    <% if current_user.following?(@user) %>
+                    <td>
+                      <%= link_to 'フォロー外す', unfollow_path(@user.id), method: :POST %>
+                    <% else %>
+                      <%= link_to 'フォローする', follow_path(@user.id), method: :POST %>
+                    </td>
                     <% end %>
-                  人</h5>
-                  <%= render "follow_form" %>
-                </td>
-                <td>
-                  <h5 style="color: black;">フォロワー 
-                  <%= link_to followers_user_path(current_user) do %>
-                  <%= @user.followers.count %>
                   <% end %>
-                  人</h5>
-                </td>
               </tr>
             </table>
           </div>
