@@ -1,6 +1,16 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
+  def follow
+    @user = User.find(params[:id])
+    @users = @user.follower
+  end
+  
+  def follower
+    @user = User.find(params[:id])
+    @users = @user.followed
+  end
+  
   def index
     @users = User.all
   end
