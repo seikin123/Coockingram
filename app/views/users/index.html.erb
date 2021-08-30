@@ -32,6 +32,17 @@
               <div class="content">
                 投稿数：<%= user.recipes.count %>
               </div>
+                  <p>
+                    <% unless current_user == user %>
+                      <% if user_signed_in? %>
+                        <% if current_user.following?(user) %>
+                          <%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST %>
+                        <% else %>
+                          <%= link_to 'フォローする', follow_path(user.id), method: :POST %>
+                        <% end %>
+                      <% end %>
+                    <% end %>
+              </p>
             </div>
           </div>
         </div>
