@@ -1,19 +1,5 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:index]
-  def following
-    #@userがフォローしているユーザー
-    @user  = User.find(params[:id])
-    @users = @user.following_user
-    # @users = @user
-    render 'follow'
-  end
-
-  def followers
-    #@userをフォローしているユーザー
-    @user  = User.find(params[:id])
-    @users = @user.followers
-    render 'follower'
-  end
 
   def index
     @users = User.all
