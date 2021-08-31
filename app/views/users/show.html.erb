@@ -36,14 +36,16 @@
                 <td></td>
               </tr>
               <tr>
-                <td> フォロー数: <%= link_to "#{@user.follower.count}", follow_user_path(@user.id) %></td>
-                <td>フォロワー数: <%= link_to "#{@user.followed.count}", follower_user_path(@user.id) %></td>
+                <td> フォロー中: <%= link_to "#{@user.follower.count}", follow_user_path(@user.id) %></td>
+                <td>フォロワー: <%= link_to "#{@user.followed.count}", follower_user_path(@user.id) %></td>
                   <% unless @user == current_user %>
                     <% if current_user.following?(@user) %>
                     <td>
-                      <%= link_to 'フォロー外す', unfollow_path(@user.id), method: :POST %>
+                      <%= link_to 'フォロー中', unfollow_path(@user.id), method: :POST, class: 'btn btn-outline-primary' %>
+                    </td>
                     <% else %>
-                      <%= link_to 'フォローする', follow_path(@user.id), method: :POST %>
+                    <td>
+                      <%= link_to 'フォローする', follow_path(@user.id), method: :POST, class: 'btn btn-outline-primary' %>
                     </td>
                     <% end %>
                   <% end %>
