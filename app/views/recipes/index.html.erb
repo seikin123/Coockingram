@@ -21,6 +21,10 @@
                 <% end %>
                 </figure>
             </div>
+                          <%# いいね表示 %>
+              <div id="likes_buttons<%= recipe.id %>">
+                <%= render partial: 'likes/like', locals: { recipe: recipe, like: @like} %>
+              </div>
             <div class="card-content">
               <div class="media">
                 <div class="media-left">
@@ -34,7 +38,6 @@
                   <div class="title"><%= link_to recipe.user.username, user_path(recipe.user) %></div>
                 </div>
               </div>
-
               <div class="content">
                 <time><%= recipe.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新
               </div>

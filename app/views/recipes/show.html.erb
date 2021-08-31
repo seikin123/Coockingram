@@ -23,6 +23,10 @@
               <div class="media-content">
                 <p class="title is-4"><%= @recipe.title %></p>
               </div>
+              <%# いいね表示 %>
+              <div id="likes_buttons<%= @recipe.id %>">
+                <%= render partial: 'likes/like', locals: { recipe: @recipe, like: @like} %>
+              </div>
             </div>
             <div class="content">
               <table class="table is-narrow">
