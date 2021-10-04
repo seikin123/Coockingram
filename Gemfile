@@ -48,6 +48,10 @@ group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 3.26'
   gem 'selenium-webdriver'
+  gem 'webdrivers'
+  gem 'rspec-rails', '~> 4.0.0'
+  gem 'factory_bot_rails'
+  gem 'faker'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end
@@ -60,3 +64,4 @@ gem 'refile', require: "refile/rails", github: 'manfe/refile'
 gem 'refile-mini_magick'
 gem 'bulma-rails'
 gem 'jquery-rails'
+gem 'rails-i18n'

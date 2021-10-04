@@ -3,7 +3,12 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
         :recoverable, :rememberable, :validatable
+
   attachment :profile_image
+
+  validates :username, presence: true, uniqueness:true, length: {in: 2..20}
+  validates :profile, length: { maximum: 50}
+
   has_many :recipes, dependent: :destroy
 
   has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy # フォロー取得
