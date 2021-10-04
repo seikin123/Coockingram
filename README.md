@@ -14,15 +14,15 @@
 ・これから料理をしようと思っている方  
 
 ### 機能一覧  
-・レシピ投稿
-・フォローフォロワー機能
-・いいね機能（非同期）  
-・コメント機能  
+* レシピ投稿
+* フォローフォロワー機能
+* いいね機能（非同期）  
+* コメント機能  
 
 ## 開発環境  
-・OS：Linux  
-・言語：HTML,CSS,JavaScript,Ruby,SQL  
-・フレームワーク：Ruby on Rails  
-・JS ライブラリ：jQuery  
-・IDE：VScode  
+* OS：Linux  
+* 言語：HTML,CSS,JavaScript,Ruby,SQL  
+* フレームワーク：Ruby on Rails  
+* JS ライブラリ：jQuery  
+* IDE：VScode  
 
