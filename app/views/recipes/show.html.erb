@@ -45,7 +45,7 @@
         </div>
       </div>
 
-      <div class="column is-4">
+      <div class="column is-5">
         <article class="panel is-link">
           <p class="panel-heading">
             By <%= @recipe.user.username %>
@@ -62,7 +62,16 @@
             <%= @recipe.user.username %> さんのページへ
           <% end %>
         </article>
+      <%# コメント機能 %>
+      <h2>コメントする</h2>
+        <%= render 'comments/form', recipe:@recipe, comment: @comment %>
+      <h2>コメント一覧</h2>
+      <div id="comments_area_<%= @recipe.id %>">
+          <%= render partial: 'recipes/comment', local: {comment: @comment} %>
       </div>
+      </div>
+
+
     </div>
   </div>
 </section>
