@@ -4,6 +4,8 @@ class Recipe < ApplicationRecord
 
   has_many :likes, dependent: :destroy
 
+  has_many :comments, dependent: :destroy 
+
   validates :title, presence: true, length: {maximum: 50 }
   validates :body, presence: true, length: { maximum: 255 }
   validates :image_id, presence: true

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: "home#index"
   resources :recipes do
     resources :likes, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy]
   end
   resources :users do
     get :follow, on: :member
